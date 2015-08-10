@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SLNavigationViewController.h
 //  Small Lens
 //
 //  Created by zjm on 15-8-10.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface SLNavigationViewController : UINavigationController
 
 @end
-
