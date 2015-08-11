@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28F402421B7A0237002FDEF2 /* IPAdress.c in Sources */ = {isa = PBXBuildFile; fileRef = 28F4023C1B7A0237002FDEF2 /* IPAdress.c */; };
+		28F402431B7A0237002FDEF2 /* haomaobj.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F4023D1B7A0237002FDEF2 /* haomaobj.m */; };
+		28F402441B7A0237002FDEF2 /* MImaViewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F4023E1B7A0237002FDEF2 /* MImaViewControl.m */; };
+		28F402451B7A0237002FDEF2 /* YanZhengControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F4023F1B7A0237002FDEF2 /* YanZhengControlView.m */; };
+		28F402461B7A0237002FDEF2 /* ZhuCe.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F402401B7A0237002FDEF2 /* ZhuCe.m */; };
+		28F402471B7A0237002FDEF2 /* ZhuCeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F402411B7A0237002FDEF2 /* ZhuCeViewController.m */; };
 		3FAF84141B7884E000A3A288 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF84131B7884E000A3A288 /* main.m */; };
 		3FAF84171B7884E000A3A288 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF84161B7884E000A3A288 /* AppDelegate.m */; };
 		3FAF841D1B7884E000A3A288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FAF841B1B7884E000A3A288 /* Main.storyboard */; };
@@ -43,6 +49,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28F402351B7A0237002FDEF2 /* haomaobj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = haomaobj.h; sourceTree = "<group>"; };
+		28F402361B7A0237002FDEF2 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		28F402371B7A0237002FDEF2 /* IPAdress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAdress.h; sourceTree = "<group>"; };
+		28F402381B7A0237002FDEF2 /* MImaViewControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MImaViewControl.h; sourceTree = "<group>"; };
+		28F402391B7A0237002FDEF2 /* YanZhengControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YanZhengControlView.h; sourceTree = "<group>"; };
+		28F4023A1B7A0237002FDEF2 /* ZhuCe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhuCe.h; sourceTree = "<group>"; };
+		28F4023B1B7A0237002FDEF2 /* ZhuCeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhuCeViewController.h; sourceTree = "<group>"; };
+		28F4023C1B7A0237002FDEF2 /* IPAdress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IPAdress.c; sourceTree = "<group>"; };
+		28F4023D1B7A0237002FDEF2 /* haomaobj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = haomaobj.m; sourceTree = "<group>"; };
+		28F4023E1B7A0237002FDEF2 /* MImaViewControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MImaViewControl.m; sourceTree = "<group>"; };
+		28F4023F1B7A0237002FDEF2 /* YanZhengControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YanZhengControlView.m; sourceTree = "<group>"; };
+		28F402401B7A0237002FDEF2 /* ZhuCe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhuCe.m; sourceTree = "<group>"; };
+		28F402411B7A0237002FDEF2 /* ZhuCeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhuCeViewController.m; sourceTree = "<group>"; };
 		3FAF840E1B7884E000A3A288 /* Small Lens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Lens.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FAF84121B7884E000A3A288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FAF84131B7884E000A3A288 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -110,11 +129,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		28F402331B7A0181002FDEF2 /* jjj */ = {
+		28F402341B7A01F0002FDEF2 /* 注册 */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = jjj;
+			name = "注册";
 			sourceTree = "<group>";
 		};
 		3FAF84051B7884E000A3A288 = {
@@ -138,7 +157,20 @@
 		3FAF84101B7884E000A3A288 /* Small Lens */ = {
 			isa = PBXGroup;
 			children = (
-				28F402331B7A0181002FDEF2 /* jjj */,
+				28F402351B7A0237002FDEF2 /* haomaobj.h */,
+				28F402361B7A0237002FDEF2 /* Header.h */,
+				28F402371B7A0237002FDEF2 /* IPAdress.h */,
+				28F402381B7A0237002FDEF2 /* MImaViewControl.h */,
+				28F402391B7A0237002FDEF2 /* YanZhengControlView.h */,
+				28F4023A1B7A0237002FDEF2 /* ZhuCe.h */,
+				28F4023B1B7A0237002FDEF2 /* ZhuCeViewController.h */,
+				28F4023C1B7A0237002FDEF2 /* IPAdress.c */,
+				28F4023D1B7A0237002FDEF2 /* haomaobj.m */,
+				28F4023E1B7A0237002FDEF2 /* MImaViewControl.m */,
+				28F4023F1B7A0237002FDEF2 /* YanZhengControlView.m */,
+				28F402401B7A0237002FDEF2 /* ZhuCe.m */,
+				28F402411B7A0237002FDEF2 /* ZhuCeViewController.m */,
+				28F402341B7A01F0002FDEF2 /* 注册 */,
 				3FAF84441B78A78A00A3A288 /* Third(第三方框架) */,
 				3FAF843D1B78989F00A3A288 /* MainController(主要控制器) */,
 				3FAF84381B78935300A3A288 /* Login(登陆) */,
@@ -381,6 +413,10 @@
 				3FAF845C1B78A84400A3A288 /* AFHTTPRequestOperationManager.m in Sources */,
 				3FAF84601B78A84400A3A288 /* AFURLConnectionOperation.m in Sources */,
 				3FAF845B1B78A84400A3A288 /* AFHTTPRequestOperation.m in Sources */,
+				28F402431B7A0237002FDEF2 /* haomaobj.m in Sources */,
+				28F402421B7A0237002FDEF2 /* IPAdress.c in Sources */,
+				28F402451B7A0237002FDEF2 /* YanZhengControlView.m in Sources */,
+				28F402461B7A0237002FDEF2 /* ZhuCe.m in Sources */,
 				3FFC5BA91B79F75700247795 /* SLTabBarController.m in Sources */,
 				3FAF846C1B78ADAD00A3A288 /* MBProgressHUD+JM.m in Sources */,
 				3FFC5BA11B79EEE300247795 /* SFHFKeychainUtils.m in Sources */,
@@ -389,6 +425,8 @@
 				3FAF845D1B78A84400A3A288 /* AFHTTPSessionManager.m in Sources */,
 				3FAF845E1B78A84400A3A288 /* AFNetworkReachabilityManager.m in Sources */,
 				3FFC5BA41B79EF0400247795 /* LoginUser.m in Sources */,
+				28F402441B7A0237002FDEF2 /* MImaViewControl.m in Sources */,
+				28F402471B7A0237002FDEF2 /* ZhuCeViewController.m in Sources */,
 				3FAF84621B78A84400A3A288 /* AFURLResponseSerialization.m in Sources */,
 				3FAF84631B78A84400A3A288 /* AFURLSessionManager.m in Sources */,
 				3FAF843C1B78950A00A3A288 /* LoginViewController.m in Sources */,

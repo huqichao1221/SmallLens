@@ -12,6 +12,7 @@
 #import "MBProgressHUD+JM.h"
 #import "LoginUser.h"
 #import "SLTabBarController.h"
+#import "ZhuCeViewController.h"
 @interface LoginViewController ()
 @property(nonatomic, weak) UIButton *loginBtn; // 登陆
 @property(nonatomic, weak) UIButton *registBtn; // 注册
@@ -48,6 +49,9 @@
  */
 - (void)regist{
     NSLog(@"register");
+    ZhuCeViewController * YAVC=[[ZhuCeViewController alloc]init];
+    
+    [self.navigationController pushViewController:YAVC animated:NO];
 }
 
 /**
