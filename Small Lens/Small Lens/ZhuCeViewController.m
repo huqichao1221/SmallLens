@@ -117,10 +117,10 @@
                         NSLog(@"%@",obj.yanzhennumber);
                        [self.navigationController pushViewController:Ycc animated:YES];
                     }
-                    else if ([json[@"Msg"] isEqualToString:@"1"])
+                    else if ([json[@"ErrCode"] isEqualToString:@"1"])
                     {
                         
-                        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"连接失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"该用户已注册，可以直接登录" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
                         [alert show];
 
                     }
