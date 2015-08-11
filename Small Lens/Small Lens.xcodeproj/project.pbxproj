@@ -27,6 +27,9 @@
 		3FAF84661B78A8DA00A3A288 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF84651B78A8DA00A3A288 /* HttpTool.m */; };
 		3FAF846C1B78ADAD00A3A288 /* MBProgressHUD+JM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF84691B78ADAD00A3A288 /* MBProgressHUD+JM.m */; };
 		3FAF846D1B78ADAD00A3A288 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF846B1B78ADAD00A3A288 /* MBProgressHUD.m */; };
+		3FFC5BA11B79EEE300247795 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC5BA01B79EEE300247795 /* SFHFKeychainUtils.m */; };
+		3FFC5BA41B79EF0400247795 /* LoginUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC5BA31B79EF0400247795 /* LoginUser.m */; };
+		3FFC5BA91B79F75700247795 /* SLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC5BA81B79F75700247795 /* SLTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,12 @@
 		3FAF84691B78ADAD00A3A288 /* MBProgressHUD+JM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+JM.m"; sourceTree = "<group>"; };
 		3FAF846A1B78ADAD00A3A288 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		3FAF846B1B78ADAD00A3A288 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		3FFC5B9F1B79EEE300247795 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		3FFC5BA01B79EEE300247795 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		3FFC5BA21B79EF0400247795 /* LoginUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginUser.h; sourceTree = "<group>"; };
+		3FFC5BA31B79EF0400247795 /* LoginUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginUser.m; sourceTree = "<group>"; };
+		3FFC5BA71B79F75700247795 /* SLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTabBarController.h; sourceTree = "<group>"; };
+		3FFC5BA81B79F75700247795 /* SLTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,8 +184,8 @@
 		3FAF84381B78935300A3A288 /* Login(登陆) */ = {
 			isa = PBXGroup;
 			children = (
-				3FAF843A1B78950A00A3A288 /* LoginViewController.h */,
-				3FAF843B1B78950A00A3A288 /* LoginViewController.m */,
+				3FFC5BA51B79EF1C00247795 /* Model(模型） */,
+				3FFC5BA61B79EF4D00247795 /* Controller(控制器) */,
 			);
 			name = "Login(登陆)";
 			sourceTree = "<group>";
@@ -186,6 +195,8 @@
 			children = (
 				3FAF843E1B78991100A3A288 /* SLNavigationViewController.h */,
 				3FAF843F1B78991100A3A288 /* SLNavigationViewController.m */,
+				3FFC5BA71B79F75700247795 /* SLTabBarController.h */,
+				3FFC5BA81B79F75700247795 /* SLTabBarController.m */,
 			);
 			name = "MainController(主要控制器)";
 			sourceTree = "<group>";
@@ -234,6 +245,26 @@
 				3FAF846B1B78ADAD00A3A288 /* MBProgressHUD.m */,
 			);
 			path = MBHUD;
+			sourceTree = "<group>";
+		};
+		3FFC5BA51B79EF1C00247795 /* Model(模型） */ = {
+			isa = PBXGroup;
+			children = (
+				3FFC5B9F1B79EEE300247795 /* SFHFKeychainUtils.h */,
+				3FFC5BA01B79EEE300247795 /* SFHFKeychainUtils.m */,
+				3FFC5BA21B79EF0400247795 /* LoginUser.h */,
+				3FFC5BA31B79EF0400247795 /* LoginUser.m */,
+			);
+			name = "Model(模型）";
+			sourceTree = "<group>";
+		};
+		3FFC5BA61B79EF4D00247795 /* Controller(控制器) */ = {
+			isa = PBXGroup;
+			children = (
+				3FAF843A1B78950A00A3A288 /* LoginViewController.h */,
+				3FAF843B1B78950A00A3A288 /* LoginViewController.m */,
+			);
+			name = "Controller(控制器)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,11 +373,14 @@
 				3FAF845C1B78A84400A3A288 /* AFHTTPRequestOperationManager.m in Sources */,
 				3FAF84601B78A84400A3A288 /* AFURLConnectionOperation.m in Sources */,
 				3FAF845B1B78A84400A3A288 /* AFHTTPRequestOperation.m in Sources */,
+				3FFC5BA91B79F75700247795 /* SLTabBarController.m in Sources */,
 				3FAF846C1B78ADAD00A3A288 /* MBProgressHUD+JM.m in Sources */,
+				3FFC5BA11B79EEE300247795 /* SFHFKeychainUtils.m in Sources */,
 				3FAF84141B7884E000A3A288 /* main.m in Sources */,
 				3FAF84611B78A84400A3A288 /* AFURLRequestSerialization.m in Sources */,
 				3FAF845D1B78A84400A3A288 /* AFHTTPSessionManager.m in Sources */,
 				3FAF845E1B78A84400A3A288 /* AFNetworkReachabilityManager.m in Sources */,
+				3FFC5BA41B79EF0400247795 /* LoginUser.m in Sources */,
 				3FAF84621B78A84400A3A288 /* AFURLResponseSerialization.m in Sources */,
 				3FAF84631B78A84400A3A288 /* AFURLSessionManager.m in Sources */,
 				3FAF843C1B78950A00A3A288 /* LoginViewController.m in Sources */,
@@ -542,6 +576,7 @@
 				3FAF84331B7884E000A3A288 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3FAF84341B7884E000A3A288 /* Build configuration list for PBXNativeTarget "Small LensTests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +585,7 @@
 				3FAF84361B7884E000A3A288 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

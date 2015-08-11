@@ -43,7 +43,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"小镜头-16_08.png"] style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 - (void)didReceiveMemoryWarning {

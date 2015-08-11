@@ -7,10 +7,15 @@
 //
 
 #import "LoginViewController.h"
+#import "HttpTool.h"
 #import "General.h"
 #import "MBProgressHUD+JM.h"
+#import "LoginUser.h"
+#import "SLTabBarController.h"
 @interface LoginViewController ()
 @property(nonatomic, weak) UIButton *loginBtn; // 登陆
+@property(nonatomic, weak) UIButton *registBtn; // 注册
+@property(nonatomic, weak) UIButton *forgetPwdBtn; // 忘记密码
 @property(nonatomic, weak) UITextField *userName; // 用户名
 @property(nonatomic, weak) UITextField *phoneNum; // 手机号
 @property(nonatomic, weak) UITextField *passWord; // 密码
@@ -25,10 +30,74 @@
     [super viewDidLoad];
     self.view.backgroundColor = COLOR(233, 233, 233);
     self.navigationItem.title = @"登陆";
-    
+   
     // 初始化登陆界面
     [self setupInterface];
     
+}
+
+/**
+ *  忘记密码
+ */
+- (void)forgetPwd{
+    NSLog(@"forgetPwd");
+}
+
+/**
+ *  注册
+ */
+- (void)regist{
+    NSLog(@"register");
+}
+
+/**
+ *  登陆成功
+ */
+- (void)loginSucess{
+    SLTabBarController *slt = [[SLTabBarController alloc]init];
+    [self.navigationController pushViewController:slt animated:NO];
+}
+
+/**
+ *  登陆
+ */
+- (void)login{
+    if([ self.phoneNum.text isEqualToString:@""] || [self.passWord.text isEqualToString:@""])
+    {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"输入不能为空" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+    
+    NSDictionary * dic = @{@"UserPhoneNum":self.phoneNum.text,@"Password":self.passWord.text,@"UserIP":@"192.168.1.1"}; // ,@"UserIP":
+    [HttpTool GET:LOGIN parm:dic success:^(id json) {
+       // [MBProgressHUD showMessage:@"正在加载"];
+        if([json[@"Msg"] isEqualToString:@"用户手机号或者密码错误"])
+        {
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:json[@"Msg"] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            return;
+            
+        }
+        else if([json[@"Msg"] isEqualToString:@"登录成功"])
+        {
+                NSDictionary * dic = json[@"Item"];
+                
+                LoginUser *user = [LoginUser current];
+                user.phoneNum = [NSString stringWithFormat:@"%@",dic[@"User_PhoneNum"]];
+                user.pwd = [NSString stringWithFormat:@"%@",dic[@"User_Password"]];
+                user.IP = [NSString stringWithFormat:@"%@",dic[@"User_OperaterIP"]];
+                NSLog(@"%@", user.IP);
+                user.ID = [NSString stringWithFormat:@"%@",dic[@"ID"]];
+                
+                [self loginSucess];
+            
+        }
+    } fail:^(NSError *error) {
+        NSLog(@"请求失败");
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    }];
+
 }
 
 /**
@@ -76,77 +145,37 @@
     [self.view addSubview:loginBtn];
     self.loginBtn = loginBtn;
     
+    // 注册账号按钮
+    UIButton *registBtn = [[UIButton alloc]init];
+    registBtn.backgroundColor = COLOR(233, 233, 233);
+    [registBtn setTitle:@"注册账号" forState:UIControlStateNormal];
+    registBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    [registBtn setTitleColor:[UIColor colorWithRed:78.0/255.0 green:78.0/255.0 blue:78.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+    CGFloat registBtnW = 60;
+    CGFloat registBtnH = 30;
+    CGFloat registBtnX = (WIDTH - registBtnW * 2) * 0.5;
+    CGFloat registBtnY = HEIGHT - registBtnH;
+    registBtn.frame = CGRectMake(registBtnX, registBtnY, registBtnW, registBtnH);
+    [registBtn addTarget:self action:@selector(regist) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:registBtn];
+    self.registBtn = registBtn;
+    
+    // 忘记密码按钮
+    UIButton *forgetPwdBtn = [[UIButton alloc]init];
+    forgetPwdBtn.backgroundColor = COLOR(233, 233, 233);
+    [forgetPwdBtn setTitle:@"忘记密码" forState:UIControlStateNormal];
+    forgetPwdBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    [forgetPwdBtn setTitleColor:[UIColor colorWithRed:78.0/255.0 green:78.0/255.0 blue:78.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+    CGFloat forgetPwdBtnW = registBtnW;
+    CGFloat forgetPwdBtnH = registBtnH;
+    CGFloat forgetPwdBtnX = registBtnX + registBtnW;
+    CGFloat forgetPwdBtnY = registBtnY;
+    forgetPwdBtn.frame = CGRectMake(forgetPwdBtnX, forgetPwdBtnY, forgetPwdBtnW, forgetPwdBtnH);
+    [forgetPwdBtn addTarget:self action:@selector(forgetPwd) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:forgetPwdBtn];
+    self.forgetPwdBtn = forgetPwdBtn;
     
 }
 
 
-/**
- *  登陆成功
- */
-- (void)loginSucess{
-    
-}
-
-/**
- *  登陆
- */
-- (void)login{
-    if([ self.phoneNum.text isEqualToString:@""] || [self.passWord.text isEqualToString:@""])
-    {
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"输入不能为空" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
-        return;
-    }
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-//    NSDictionary * dic = @{@"staff_name":_userNameField.text,@"staff_pwd":_passwordField.text};
-//    [HttpTool GET:LOGINURL parm:dic success:^(id json) {
-//        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//        if([json[@"status"] isEqualToString:@"error"])
-//        {
-//            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:json[@"message"] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//            [alert show];
-//            return;
-//            
-//        }
-//        else if([json[@"status"] isEqualToString:@"ok"])
-//        {
-//            NSArray * arr = json[@"data"];
-//            if([arr count]>0)
-//            {
-//                NSDictionary * dic = arr[0];
-//                
-//                LoginUser * user = [LoginUser current];
-//                user.staff_isauth = [NSString stringWithFormat:@"%@",dic[@"staff_isauth"]];
-//                user.staff_name = [NSString stringWithFormat:@"%@",dic[@"staff_name"]];
-//                user.store_id = [NSString stringWithFormat:@"%@",dic[@"store_id"]];
-//                user.store_address = [NSString stringWithFormat:@"%@",dic[@"store_address"]];
-//                user.store_name = [NSString stringWithFormat:@"%@",dic[@"store_name"]];
-//                
-//                user.findkh = [[NSString stringWithFormat:@"%@",dic[@"findkh"]] integerValue];
-//                user.addkh = [[NSString stringWithFormat:@"%@",dic[@"addkh"]] integerValue];
-//                user.delkh = [[NSString stringWithFormat:@"%@",dic[@"delkh"]] integerValue];
-//                user.savekh = [[NSString stringWithFormat:@"%@",dic[@"savekh"]] integerValue];
-//                user.findyg = [[NSString stringWithFormat:@"%@",dic[@"findyg"]] integerValue];
-//                user.addyg = [[NSString stringWithFormat:@"%@",dic[@"addyg"]] integerValue];
-//                user.delyg = [[NSString stringWithFormat:@"%@",dic[@"delyg"]] integerValue];
-//                user.saveyg = [[NSString stringWithFormat:@"%@",dic[@"saveyg"]] integerValue];
-//                user.findxm = [[NSString stringWithFormat:@"%@",dic[@"findxm"]] integerValue];
-//                user.addxm = [[NSString stringWithFormat:@"%@",dic[@"addxm"]] integerValue];
-//                user.delxm = [[NSString stringWithFormat:@"%@",dic[@"delxm"]] integerValue];
-//                user.savexm = [[NSString stringWithFormat:@"%@",dic[@"savexm"]] integerValue];
-//                user.findcp = [[NSString stringWithFormat:@"%@",dic[@"findcp"]] integerValue];
-//                user.addcp = [[NSString stringWithFormat:@"%@",dic[@"addcp"]] integerValue];
-//                user.delcp = [[NSString stringWithFormat:@"%@",dic[@"delcp"]] integerValue];
-//                user.savecp = [[NSString stringWithFormat:@"%@",dic[@"savecp"]] integerValue];
-//                
-//                [self loginSucess];
-//            }
-//        }
-//    } fail:^(NSError *error) {
-//        NSLog(@"请求失败");
-//        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//    }];
-
-}
 @end
